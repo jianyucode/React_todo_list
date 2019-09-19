@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import List from "./components/todos/List.js"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    todos: [
+      {id: 1, name: "learn rails", complete: true},
+      {id: 2, name: "learn react", complete: false},
+      {id: 3, name: "learn react_route", complete: true},
+      {id: 4, name: "learn JS", complete: false},
+    ]
+  }
+
+    // renderTodos = () => {
+    //   const {todos} = this.state
+    //   return todos.map( todo => {
+    //     return (
+    //       <li key={todo.id}>{todo.name}</li>
+    //     )
+    //   })
+    // }
+
+
+  render () {
+      const { todos } = this.state
+    return (
+      <div>
+        <List name="Bucket List" items={todos} />
+      </div>
+    )
+  }
 }
 
 export default App;
